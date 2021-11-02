@@ -1,6 +1,8 @@
 l1=[1,1,2,2,3,3,4,5,6,6]
-l2=set()
+l1set=set()
+l2=list()
 for i in range(len(l1)):
-    l2.add(l1[i])
+    l1set.add(l1[i])
 
+l2=list(l1set)
 print(l2)
