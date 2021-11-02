@@ -8,4 +8,4 @@ for a,b in dcValues:
     if(b=='女性'):
         l2.append((a,b))
 
-print('%s\n%s\n%s'%(dc,l2,l1))
+print('%s\n%s\n%s'%(dc,l1,l2))
