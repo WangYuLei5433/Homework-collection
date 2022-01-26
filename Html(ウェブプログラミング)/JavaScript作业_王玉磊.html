@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>注册界面</title>
+        <style type="text/css">
+            fieldset{
+                margin: 0px auto;
+                width: 300px;
+                border-left: none;
+                border-right: none;
+            }
+        </style>
+    </head>
+    <script type="text/javascript">
+        function validateForm(thisForm){
+            with(thisForm){
+                if(username.value==""){
+                    alert("用户账号不可以为空，请填写");
+                    return false;
+                }
+                if(pwd.value.length<6||pwd.value.length>20){
+                    alert("用户密码长度必须在6-20之间");
+                    return false;
+                }
+                if(cfpwd.value!=pwd.value){
+                    alert("两次密码不一致请重新输入");
+                    return false;
+                }
+
+                var apos=email.value.indexOf('@');
+                var dotpos=email.value.lastIndexOf('.');
+                if(apos<1||dotpos-apos<2){
+                    alert("邮箱格式不正确，请重新输入");
+                    return false;
+                }
+
+                var tel=mobile.value;
+                if(!(/^1[345678]\d{9}$/.test(tel))){
+                    alert("手机格式不正确，请重新输入")
+                    return false;
+                }
+                if(location.value==""||location.value.length>80){
+                    alert("地址不可以为空，长度不可以超过80");
+                    return false;
+                }
+                else{
+                    alert("注册成功");
+                    return true;
+                }
+            }
+           
+        }
+    </script>
+    <body>
+        <fieldset>
+            <legend>新用户注册</legend>
+            <form action="#" method="post" onsubmit="return validateForm(this)">
+                <p>登陆账号:<input type="text" name="username"></p>
+                <p>登陆密码:<input type="password" name="pwd"></p>
+                <p>确认密码:<input type="password" name="cfpwd"></p>
+                <p>电子邮箱:<input type="text" name="email"></p>
+                <p>移动电话:<input type="text" name="mobile"></p>
+                <p>通讯地址:<input type="text" name="location"></p>
+                <input type="submit"value="登陆">
+                <input type="reset"value="取消"><br>
+            </form>
+        </fieldset>
+    
+    </body>
+
+
+</html>
