@@ -7,7 +7,7 @@ body, html, ul, li, p, img, span, h1, h2, h3, em, div {margin: 0;
 	ont-family: "微软雅黑";
 	overflow-x: hidden;
 	color: #333;}
-body{background: #8dcea4;}
+body{background: #c3f5b4;}
 a {color: #333;
 	text-decoration: none;}
 a:hover {color: #129e43;
@@ -54,9 +54,13 @@ footer{text-align: center;border-top: solid 1px #129e43;padding: 10px 0;;}
 .box .Right table{border-color: #ddd;margin: 20px auto;width: 100%;}
 .box .Right table td{padding: 5px;}
 .box h2{background: #007b2b; color: #fff;padding:5px 15px;font-size: 16px;}
-.pic ul{width: 685px;}
-.pic li{float: left;text-align: center;width: 206px;margin:20px 20px auto auto;}
-
+.pic ul{width: 900px;}
+.pic li{float: left;text-align: center;width: 280px;margin:20px 20px auto auto;}
+.div5 {
+                width: 985px;
+                border: 2px solid #a0f586;
+				height: 800PX;
+            }
 
 /* Css动画 */
 @keyframes mymove1

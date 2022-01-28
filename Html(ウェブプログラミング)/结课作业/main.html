@@ -3,17 +3,86 @@
 	<head>
 		<meta charset="utf-8">
 		<title>浏览主页</title>
-		<link href="css/style.css" rel="stylesheet" type="text/css">	
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<script src="bootstrap/js/jquery-3.4.1.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="con">
-			<nav class="Clear">
-					<a href="main.html">天津特色</a>
-					<a href="about.html">景点介绍</a>
-					<a href="products.html">旅游攻略</a>
-					<a href="contact.html">联络方式</a>
-				</nav>
-		</div>		
 		
+		<div class="container" style="width: 1000px;">
+		
+			
+					<header>
+							<h1>天津之旅</h1>
+							<img src="img/logo.png" width="200">
+					</header>
+					<ul class="nav nav-pills" style="font: #129E43;">
+					      <li role="presentation" class="active"><a  href="index.html">主页</a></li>
+						  
+					     <li role="presentation" class="dropdown">
+					       <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					         天津特色<span class="caret"></span>
+					       </a>
+						   
+					       <ul class="dropdown-menu">
+					         <li><a href="jing_se1.html" name="main">天津之眼</a></li>
+					         <li><a href="#">Another action</a></li>
+							<li><a href="#">Another action</a></li>
+					       </ul>
+					     </li>
+						  
+					      <li role="presentation" class="dropdown">
+					        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					          景点介绍<span class="caret"></span>
+					        </a>
+					        <ul class="dropdown-menu">
+					          <li><a href="#">Action</a></li>
+					          <li><a href="#">Another action</a></li>
+							  <li><a href="#">Another action</a></li>
+					        </ul>
+					      </li>
+						  
+		
+						
+						<li role="presentation" class="dropdown">
+						    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						      旅游攻略<span class="caret"></span>
+						    </a>
+						    <ul class="dropdown-menu">
+						      <li><a href="#">Action</a></li>
+						      <li><a href="#">Another action</a></li>
+							  <li><a href="#">Another action</a></li>
+						    </ul>
+						  </li>
+						  
+					
+				
+							<li role="presentation" class="dropdown">
+							    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+							      登陆信息<span class="caret"></span>
+							    </a>
+							    <ul class="dropdown-menu">
+							      <li><a href="#">Action</a></li>
+							      <li><a href="#">Another action</a></li>
+								  <li><a href="#">Another action</a></li>
+							    </ul>
+							  </li>
+							  
+							</ul>
+						
+						
+						
+				<div class="div5">
+								
+						<iframe style="width:1000px; height: 700px;" frameborder="0" name="main" src="tianjin.html"></set>
+				</div>
+				
+				
+		</div>	
+		
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		   Action <span class="caret"></span>
+		 </button>
+	
 	</body>
 </html>
