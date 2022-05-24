@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>演習2-1 成績判定 学籍番号：M21W7216 王 玉磊</title>
+	</head>
+	<body>
+		
+		<script>
+			let result=Number(window.prompt("点数を入力してください。"));
+			if(result>=0 && result<60){
+				console.log("D判定です");
+				window.alert("D判定です")
+				
+			}
+			else if(result>=60 && result<70){
+				console.log("C判定です");
+				window.alert("C判定です")
+			}
+			else if(result>=70 && result<80){
+				console.log("B判定です");
+				window.alert("B判定です")
+			}
+			else if(result>=80 && result<=100){
+				console.log("A判定です");
+				window.alert("A判定です")
+			}
+			else{
+				window.alert("エラーメッセージ")
+
+			}
+		</script>
+
+	</body>
+</html>

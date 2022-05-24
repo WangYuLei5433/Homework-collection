@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>課題3-1 じゃんけんゲーム関数版 学籍番号:M21W7216 王 玉磊</title>
+</head>
+<body>
+  <script>
+   
+    function gamer_hand(){
+      let hand=Number(window.prompt("请输入1：グー，2：チョキ，3：パー"));
+      if(hand==1||hand==2||hand==3){
+        return hand;
+      }
+      else{
+        return window.alert("入力エラー");
+      }
+    }
+
+    function AI_hand(){
+      let hand=parseInt(Math.random()*3+1);
+      return hand;
+    }
+  
+    function hand_char(gamer){
+      let gamerchar;
+      if(gamer==1){
+        gamerchar="グー"
+      }
+      else if(gamer==2){
+        gamerchar="チョキ"
+      }
+      else if(gamer==3){
+        gamerchar="パー"
+      }
+      return gamerchar;
+    }
+
+    function twohand_char(gamer,AI_gamer){
+      let a="\n人の手："+hand_char(gamer)+"\nコンピュータの手："+hand_char(AI_gamer);
+      
+      return a;
+    }
+
+    function winner_judge(gamer_hand,AI_hand,winner_array){
+
+      if(gamer_hand==AI_hand){
+        window.alert("引き分け  "+twohand_char(gamer_hand,AI_hand));
+        }
+      else if(winner_array[gamer_hand-1][AI_hand-1]==1){
+        window.alert("プレイヤーが勝つ  "+twohand_char(gamer_hand,AI_hand));
+        }
+      else if(winner_array[gamer_hand-1][AI_hand-1]==-1){
+        window.alert("プレイヤーが失敗  "+twohand_char(gamer_hand,AI_hand));
+        }
+       
+    }
+   
+    const winner_array=[[0,1,-1],[-1,0,1],[1,-1,0]];
+    let gamerhand=gamer_hand();
+    let AIhand=AI_hand();
+    winner_judge(gamerhand,AIhand,winner_array)
+    twohand_char(gamerhand,AIhand);
+
+
+  </script>
+
+</body>
+</html>

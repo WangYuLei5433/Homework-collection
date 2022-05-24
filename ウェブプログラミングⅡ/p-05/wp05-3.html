@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習5-3 ウェブページへの出力 学籍番号:M21W7216 王玉磊</title>
+</head>
+<body>
+	<h3>ウェブページへの出力</h3>
+	R:<input type="range" id="Red" max="255"><br>
+	G:<input type="range" id="Green" max="255"><br>
+	B:<input type="range" id="Blue" max="255"><br>
+	<button onclick="ColorSet(value_get('#Red','#Green','#Blue'))">現在のカラー</button><br>
+	<span id="color"></span>
+	<script>
+		function value_get(R,G,B){
+			var Red=document.querySelector(R);
+			var Green=document.querySelector(G);
+			var Blue=document.querySelector(B);
+			var color=[parseFloat(Red.value),parseFloat(Green.value),parseFloat(Blue.value)]
+			return color;
+		}
+		function ColorSet(color_list){
+			var Red=color_list[0];
+			var Green=color_list[1];
+			var Blue=color_list[2];
+			var color=document.querySelector("#color");
+			color.textContent="RGB:"+Red+" "+Green+" "+Blue+" ";
+			color.style.backgroundColor="rgb("+Red+","+Green+","+Blue+")";
+			color.style.fontSize="48px"
+		}
+		
+	</script>
+</body>
+</html>

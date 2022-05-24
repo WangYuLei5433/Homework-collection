@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="utf-8">
+     <title>演習1-3 硬貨の枚数計算 学籍番号：M21W7216 王 玉磊</title>
+  </head>
+  <body>
+    <script>
+    
+    let money=Number(window.prompt("金額を入力してください。"));
+    let yuan_500,yuan_100,yuan_50,yuan_5,yuan_10,yuan_1;
+
+    yuan_500=parseInt(money/500);
+    money=money-yuan_500*500;
+
+    yuan_100=parseInt(money/100);
+    money=money-yuan_100*100;
+
+    yuan_50=parseInt(money/50);
+    money=money-yuan_50*50;
+
+    yuan_10=parseInt(money/10);
+    money=money-yuan_10*10;
+
+    yuan_5=parseInt(money/5);
+    money=money-yuan_5*5;
+
+    yuan_1=parseInt(money/1);
+    money=money-yuan_1*1;
+    
+    window.alert("500円："+yuan_500+"  　100円："+yuan_100+"  　1円："+yuan_50+"  　50円："+yuan_10+" 　 5円："+yuan_5+" 　 1円："+yuan_1);
+   
+    </script>
+  </body>
+</html>

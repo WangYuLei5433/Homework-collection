@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習5-1 input要素の入力値取得 学籍番号:M21W7216 王玉磊</title>
+</head>
+<body>
+	<h3>テキストボックス</h3>
+	<input type="text" id="num_01"> + <input type="text" id="num_02">
+	<button onclick="pluse(value_get('#num_01','#num_02'))">=</button>
+	<span id="PluseValue"></span><br>
+
+	<input type="text" id="num_03">  -  <input type="text" id="num_04">
+	<button onclick="mult(value_get('#num_03','#num_04'))">=</button>
+	<span id="MultValue"></span>
+<script>
+	function value_get(numA,numB){
+		var num1=document.querySelector(numA);
+		var num2=document.querySelector(numB);
+		var NUM=[parseInt(num1.value),parseInt(num2.value)];
+		return NUM;
+	}
+	function pluse(num_list){
+		var num1=num_list[0];
+		var num2=num_list[1];
+		num1=num1+num2;
+		var valueAdd=document.querySelector("#PluseValue");
+		valueAdd.textContent=num1;
+	}
+	function mult(num_list){
+		var num1=num_list[0];
+		var num2=num_list[1];
+		num1=num1-num2;
+		var valueMult=document.querySelector("#MultValue");
+		valueMult.textContent=num1;
+	}
+</script>
+
+
+</body>
+</html>

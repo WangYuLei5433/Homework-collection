@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>演習2-3 じゃんけんゲーム 学籍番号:M21W7216 王 玉磊</title>
+</head>
+<body>
+  
+  <script>
+    let gamer=Number(window.prompt("请输入1：チョキ，2：グー，3：パー"));
+    let AI_gamer=parseInt(Math.random()*3+1);
+    console.log(AI_gamer);
+    
+    function gamer_char(gamer){
+      let gamerchar;
+      if(gamer==1){
+        gamerchar="チョキ"
+      }
+      else if(gamer==2){
+        gamerchar="グー"
+      }
+      else if(gamer==3){
+        gamerchar="パー"
+      }
+      return gamerchar;
+    }
+    function two_char(gamer,AI_gamer){
+      let a=gamer_char(gamer);
+      let b=gamer_char(AI_gamer);
+      let c="\n人の手："+a+"\nコンピュータの手："+b;
+      return c;
+    }
+
+
+    if(gamer==1){
+      
+      if(AI_gamer==1){
+        window.alert("引き分け  "+two_char(gamer,AI_gamer));
+      }
+      else if(AI_gamer==2){
+        window.alert("コンピュータ勝ち  "+two_char(gamer,AI_gamer));
+      }
+      else if(AI_gamer==3){
+        window.alert("人勝ち  "+two_char(gamer,AI_gamer));
+      }
+
+		}
+		else if(gamer==2){
+
+      if(AI_gamer==1){
+        window.alert("人勝ち  "+two_char(gamer,AI_gamer));
+      }
+      else if(AI_gamer==2){
+        window.alert("引き分け  "+two_char(gamer,AI_gamer));
+      }
+      else if(AI_gamer==3){
+        window.alert("コンピュータ勝ち  "+two_char(gamer,AI_gamer));
+      }
+
+			}
+		else if(gamer==3){
+
+			if(AI_gamer==1){
+        window.alert("コンピュータ勝ち  "+two_char(gamer,AI_gamer));
+      }
+      else if(AI_gamer==2){
+        window.alert("人勝ち  "+two_char(gamer,AI_gamer));
+      }
+      else if(AI_gamer==3){
+        window.alert("引き分け  "+two_char(gamer,AI_gamer));
+      }
+
+			}
+    else{
+      window.alert("入力エラー");
+    }
+    
+
+
+
+  </script>
+	
+</body>
+</html>

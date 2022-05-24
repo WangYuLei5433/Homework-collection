@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>演習4-1オブジェクト　学籍番号:M21W7216 王玉磊</title>
+</head>
+<body>
+    
+    <script>
+     function CreatStsdent(Id,Nam,Ps){
+         let student={
+            id:Id,
+            name:Nam,
+            pwd:Ps
+         };
+         return student;
+     }
+
+    let alagaki=CreatStsdent("M23W7000","新垣結衣","p8Nw7vRe");
+    console.log(alagaki.id);
+    console.log(alagaki["name"])
+    window.alert(alagaki.pwd)
+    </script>
+  
+  </body>
+</html>

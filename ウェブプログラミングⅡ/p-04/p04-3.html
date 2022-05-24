@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>演習4-3オブジェクト　学籍番号:M21W7216 王玉磊</title>
+</head>
+<body>
+    
+    <script>
+     function CreatStsdent(Id,Nam,Ps){
+         let student={
+            id:Id,
+            name:Nam,
+            pwd:Ps,
+            auth:function(i,p){
+                if(i==this.id && p==this.pwd){
+                    return true;
+                }else{
+                    window.alert("入力エラー\n"+i+"\n"+p);
+                }
+
+            }
+         };
+         return student;
+     }
+
+    let alagaki=CreatStsdent("M23W7000","新垣結衣","p8Nw7vRe");
+    console.log(alagaki.id);
+    console.log(alagaki["name"]);
+    let remove_name= window.prompt("idを入力してください");
+    let remove_pwd=window.prompt("パスワードを入力してください");
+    alagaki.auth(remove_name,remove_pwd);
+
+    </script>
+  
+  </body>
+</html>

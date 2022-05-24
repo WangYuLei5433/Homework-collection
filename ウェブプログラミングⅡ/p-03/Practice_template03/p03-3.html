@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>演習3-3数当てゲーム 学籍番号:M21W7216 王 玉磊</title>
+</head>
+<body>
+<h1>1から100までの数を乱数で発生させました</h1>
+<h2>GUESSボタンを押して数字を当ててください</h2>
+<button onclick="guess(player_number,AInumber)">GUESS</button>
+<p>コンソールにヒントが出ます。</p>
+<p>はずれたら、も一度GUESSボタンを押して予想した数字を入れて下さい。</p>
+<p>当たったら、ページを再読み込みするともう一度遊べます。</p>
+<script>
+
+const AInumber=parseInt(Math.random()*100+1);
+let times=null;
+let player_number=null;
+
+function addtime(){
+  ++times;
+  return times;
+}
+
+function input_num(){
+  let player_number=Number(window.prompt("いくつでしょか"))
+  return player_number;
+}
+
+function guess(player_number,guess_number){
+  addtime();
+  player_number=input_num()
+  if(player_number==guess_number){
+    console.log("第"+times+"回"+"正解です");
+  }
+  else if(player_number>guess_number){
+    console.log("第"+times+"回"+"それより小さい数です");
+  }
+  else if(player_number<guess_number){
+    console.log("第"+times+"回"+"それより大さい数です");
+  }
+  return times
+}
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習5-2 BMIの計算 学籍番号:M21W7216 王玉磊</title>
+</head>
+<body>
+	<h3>BMIの計算</h3>
+	身高：<input type="text" id="cm"> cm<br>
+	体重：<input type="text" id="kg"> kg<br>
+	<button onclick="BMI(value_get('#cm','#kg'))">BMI</button>
+	<span id="BMI_num">結果</span>
+	<script>
+		function value_get(numA,numB){
+			var num1=document.querySelector(numA);
+			var num2=document.querySelector(numB);
+			var NUM=[parseInt(num1.value),parseInt(num2.value)];
+			return NUM;
+		}
+		function BMI(num_list){
+			var height_m=0.01*num_list[0];
+			var weight_kg=num_list[1];
+			var BMI=document.querySelector("#BMI_num");
+			var BMI_value=weight_kg/(height_m*height_m);
+			if(BMI_value<18.5){
+				BMI.textContent="痩身: "+BMI_value;
+			}else if(BMI_value>=18.5 && BMI_value<=25){
+				BMI.textContent="普通体重: "+BMI_value;
+			}else if(BMI_value>25){
+				BMI.textContent="肥満: "+BMI_value
+			}
+		}
+		
+	</script>
+</body>
+</html>
