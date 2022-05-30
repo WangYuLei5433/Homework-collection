@@ -16,16 +16,18 @@
 			var Red=document.querySelector(R);
 			var Green=document.querySelector(G);
 			var Blue=document.querySelector(B);
-			var color=[parseFloat(Red.value),parseFloat(Green.value),parseFloat(Blue.value)]
+			var color={
+				R:parseFloat(Red.value),
+				G:parseFloat(Green.value),
+				B:parseFloat(Blue.value),
+			}
 			return color;
 		}
-		function ColorSet(color_list){
-			var Red=color_list[0];
-			var Green=color_list[1];
-			var Blue=color_list[2];
+		function ColorSet(color){
+			var in_color=color
 			var color=document.querySelector("#color");
-			color.textContent="RGB:"+Red+" "+Green+" "+Blue+" ";
-			color.style.backgroundColor="rgb("+Red+","+Green+","+Blue+")";
+			color.textContent="RGB:"+in_color.R+" "+in_color.G+" "+in_color.B+" ";
+			color.style.backgroundColor="rgb("+in_color.R+","+in_color.G+","+in_color.B+")";
 			color.style.fontSize="48px"
 		}
 		

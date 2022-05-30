@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>演習3-3数当てゲーム 学籍番号:M21W7216 王 玉磊</title>
+    <style>
+      #num {
+			width: 300px;
+			height: 900px;
+		}
+    </style>
+</head>
+<body>
+<h1>1から100までの数を乱数で発生させました</h1>
+<h2>GUESSボタンを押して数字を当ててください</h2>
+<button onclick="guess(player_number,AInumber)">GUESS</button>
+<p>コンソールにヒントが出ます。</p>
+<p>はずれたら、も一度GUESSボタンを押して予想した数字を入れて下さい。</p>
+<p>当たったら、ページを再読み込みするともう一度遊べます。</p>
+<input type="text" id="num_01"><br>
+<div id="num"></div>
+
+<script>
+
+const AInumber=parseInt(Math.random()*100+1);
+let times=null;
+let player_number=null;
+
+function addtime(){
+  ++times;
+  return times;
+}
+
+function input_num(numA){
+  let player_number=Number(document.querySelector(numA).value)
+  return player_number;
+}
+
+function guess(player_number,guess_number){
+  addtime();
+  player_number=input_num("#num_01")
+  let result_text=document.querySelector("#num");
+  if(player_number==guess_number){
+    result_text.innerHTML=result_text.innerHTML+"<br>第"+times+"回"+"正解です";
+  }
+  else if(player_number>guess_number){
+    result_text.innerHTML=result_text.innerHTML+"<br>第"+times+"回"+"それより小さい数です";
+  }
+  else if(player_number<guess_number){
+    result_text.innerHTML=result_text.innerHTML+"<br>第"+times+"回"+"それより大さい数です";
+  }
+  return times
+}
+
+
+</script>
+</body>
+
+</html>

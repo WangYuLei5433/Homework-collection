@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>演習2-1 成績判定 学籍番号：M21W7216 王 玉磊</title>
+	</head>
+	<body>
+		点数を入力してください。<input type="text" id="num_01"><br>
+		<button onclick="cheng_ji()">成績判定</button>
+		<div id="num"></div>
+		<script>
+			function value_get(numA){
+				var num1=document.querySelector(numA);
+				var NUM=Number(num1.value);
+				return NUM;
+	        }
+			function cheng_ji(){
+				let result_text=document.querySelector("#num");
+				var result=value_get("#num_01");
+				if(result>=0 && result<60){
+					result_text.textContent="D判定です";
+				}
+				else if(result>=60 && result<70){
+					result_text.textContent="c判定です";
+				}
+				else if(result>=70 && result<80){
+					result_text.textContent="b判定です";
+				}
+				else if(result>=80 && result<=100){
+					result_text.textContent="a判定です";
+				}
+				else{
+					result_text.textContent="エラーメッセージ";
+				}
+			}
+	
+		</script>
+
+	</body>
+</html>
