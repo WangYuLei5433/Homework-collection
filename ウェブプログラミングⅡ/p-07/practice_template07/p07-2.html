@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>演習7-2(レストランの注文) 学籍番号:M21W7216 王玉磊</title>
+</head>
+<body>
+	<h2>レストランの注文</h2>
+	<h3> 青椒肉絲, 回鍋肉, 油淋鶏, 八宝菜,麻婆豆腐</h3>
+	<button onclick="sp_meal()">特別注文</button>
+	<button onclick="meal()">注文</button>
+	<button onclick="meal_del()">提供</button>
+	<div id="user_menu"></div>
+<script>
+	//菜单数据包主菜单和户自选菜品
+	var menu={
+		min:['青椒肉絲', '回鍋肉', '油淋鶏', '八宝菜','麻婆豆腐'],
+		user:[],
+	}
+	//随机数生成0-4
+	function num_rand(){
+		var random=parseInt(Math.random()*5);
+		return random;
+	}
+	//用户菜单前端数据压入unshift
+	function sp_meal(){
+		var rand=num_rand();
+		menu.user.unshift(menu.min[rand]);
+		var user_menu=document.querySelector("#user_menu");
+		user_menu.textContent=menu.user;
+	}
+	//用户菜单后端数据压入push
+	function meal(){
+		var rand=num_rand();
+		menu.user.push(menu.min[rand]);
+		var user_menu=document.querySelector("#user_menu");
+		user_menu.textContent=menu.user;
+	}
+	//删除旧数据shift
+	function meal_del(){
+		menu.user.shift();
+		var user_menu=document.querySelector("#user_menu");
+		user_menu.textContent=menu.user;
+	}
+
+
+</script>
+</body>
+</html>

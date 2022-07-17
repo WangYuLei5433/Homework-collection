@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習12-3 学籍番号:M21W7216 王玉磊</title>
+	<style>
+		canvas {border : 1px solid gray;}
+	</style>
+</head>
+<body>
+	<h3>ランダムな位置に出現する青色の円が右上に移動する</h3>
+	<canvas width="640" height="480"></canvas>
+	<br><button id="btn">円を描く</button>
+
+	<script>
+		let circles=[];
+		circles.push(cicle())
+		function cicle(){
+			return {
+				x:parseInt(Math.random()*570+50),
+				y:parseInt(Math.random()*420+50),
+				r:50
+			};
+		}
+
+		let id=null;
+		let canvas=document.querySelector("canvas")
+		let Paintbrush=canvas.getContext("2d");
+		let canvasBtn=document.querySelector("#btn")
+		canvasBtn.addEventListener("click",()=>{
+			if (id==null) {
+				id=setInterval(draw,15)
+			}else{
+				circles.push(cicle())
+				clearInterval(id)
+				id=setInterval(draw,15);
+			}
+		})
+		
+		
+		function draw(){
+			Paintbrush.clearRect(0,0,640,640);
+			Paintbrush.lineWidth=7
+			Paintbrush.strokeStyle="blue"
+			for(let i=0;i<circles.length;i++){
+				circles[i].x+=1;
+				circles[i].y-=1;
+				if(circles[i].y>=550||circles[i].x>=690){
+					circles.splice(i,1);
+			 	}
+				 Paintbrush.beginPath();
+				 Paintbrush.arc(circles[i].x,circles[i].y,circles[i].r,0,2*Math.PI);
+				 Paintbrush.stroke();
+			}
+		}
+		
+	</script>
+</body>
+</html>

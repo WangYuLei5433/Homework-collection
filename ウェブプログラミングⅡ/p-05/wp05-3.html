@@ -13,13 +13,10 @@
 	<span id="color"></span>
 	<script>
 		function value_get(R,G,B){
-			var Red=document.querySelector(R);
-			var Green=document.querySelector(G);
-			var Blue=document.querySelector(B);
 			var color={
-				R:parseFloat(Red.value),
-				G:parseFloat(Green.value),
-				B:parseFloat(Blue.value),
+				R:parseFloat(document.querySelector(R).value),
+				G:parseFloat(document.querySelector(G).value),
+				B:parseFloat(document.querySelector(B).value),
 			}
 			return color;
 		}

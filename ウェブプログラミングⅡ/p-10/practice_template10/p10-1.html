@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習10-1 学籍番号:M21W7216 王玉磊</title>
+	<style>
+		table {
+			border : 1px solid gray;
+		}
+		th {
+			background-color : lightgray;
+		}
+		span {
+			display : inline-block;
+			min-width   : 10em;
+		}
+	</style>
+</head>
+<body>
+	<h2>入力部品(1)</h2>
+	<table>
+		<tr>
+			<th>テキストボックス</th>
+			<td><input type="text" id="tbox"></td>
+			<td><button id="tbox_btn">VALUE</button></td>
+			<td><span id="tbox_result"></span></td>
+		</tr>
+		<tr>
+			<th>スライダー</th>
+			<td><input type="range" id="range"></td>
+			<td><button id="range_btn">VALUE</button></td>
+			<td><span id="range_result"></span></td>
+		</tr>
+		<tr>
+			<th>テキストエリア</th>
+			<td><textarea id="tarea"></textarea></td>
+			<td><button id="tarea_btn">VALUE</button></td>
+			<td><span id="tarea_result"></span></td>
+		</tr>		
+		<tr>
+			<th>ラジオボタン</th>
+			<td id="radio">
+				<input type="radio" name="place" value="京都">京都
+				<input type="radio" name="place" value="東京">東京
+				<input type="radio" name="place" value="大坂">大坂
+			</td>
+			<td><button id="rbtn_btn">VALUE</button></td>
+			<td><span id="rbtn_result"></span></td>
+		</tr>
+		<tr>
+			<th>チェックボックス</th>
+			<td id="checkbox">
+				<input type="checkbox" name="place" value="京都">京都
+				<input type="checkbox" name="place" value="東京">東京
+				<input type="checkbox" name="place" value="大坂">大坂
+			</td>
+			<td><button id="cbox_btn">VALUE</button></td>
+			<td><span id="cbox_result"></span></td>
+		</tr>
+
+		<tr>
+			<th>メニュー（単一）</th>
+			<td>
+			<select id="select1">
+				<option value="京都">京都</option>
+				<option value="東京">東京</option>
+				<option value="大坂">大坂</option>
+			</select>
+			</td>
+			<td><button id="select1_btn">VALUE</button></td>
+			<td><span id="select1_result"></span></td>
+		</tr>
+		<tr>
+			<th>メニュー（複数）</th>
+			<td>
+				<select id="selectm" multiple size="3">
+					<option value="京都">京都</option>
+					<option value="東京">東京</option>
+					<option value="大坂">大坂</option>
+				</select>
+			</td>	
+			<td><button id="selectm_btn">VALUE</button></td>
+			<td><span id="selectm_result"></span></td>
+		</tr>
+	</table>
+	<script>
+	// ==== それぞれのボタンを押した時のイベントリスナーを設定し処理を定義する ====
+	var main=function(){
+		tbox_btn();
+		range_btn();
+		tarea_btn();
+		rbtn_btn();
+		cbox_btn();
+		select1_btn();
+		selectm_btn();
+	}();
+
+	//テキストボックス
+		function tbox_btn(){
+			var clickEvent=document.querySelector("#tbox_btn");
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value_get=function(obj){
+					return document.querySelector(obj).value
+				}("#tbox")
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML=value_get
+				}("#tbox_result")
+			})
+		}
+	//スライダー
+	function range_btn(){
+			var clickEvent=document.querySelector("#range_btn");
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value_get=function(obj){
+					return Number(document.querySelector(obj).value)
+				}("#range")
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML=value_get
+				}("#range_result")
+			})
+		}
+
+	//テキストエリア
+	function tarea_btn(){
+			var clickEvent=document.querySelector("#tarea_btn");
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value_get=function(obj){
+					return document.querySelector(obj).value
+				}("#tarea")
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML=value_get
+				}("#tarea_result")
+			})
+		}
+
+	//ラジオボタン
+	function rbtn_btn(){
+			var clickEvent=document.querySelector("#rbtn_btn");
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value_get=function(obj){
+					let result=[];
+					let ops=document.querySelectorAll(obj)
+					for(i=0;i<ops.length;i++){
+						if(ops[i].checked){
+							result.push(ops[i].value)
+						}
+					}
+					return result;
+				}("#radio input")
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML=value_get
+				}("#rbtn_result")
+			})
+		}
+	//チェックボックス
+	function cbox_btn(){
+			var clickEvent=document.querySelector("#cbox_btn");
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value_get=function(obj){
+					let result=[];
+					let ops=document.querySelectorAll(obj)
+					for(i=0;i<ops.length;i++){
+						if(ops[i].checked){
+							result.push(ops[i].value)
+						}
+					}
+					return result;
+				}("#checkbox input")
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML=value_get
+				}("#cbox_result")
+			})
+		}
+
+
+	//メニュー（単一）
+	function select1_btn(){
+			var clickEvent=document.querySelector("#select1_btn");
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value_get=function(obj){
+					return document.querySelector(obj).value
+				}("#select1")
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML=value_get
+				}("#select1_result")
+			})
+		}
+
+
+	//メニュー（複数）
+	function selectm_btn(){
+			var clickEvent=document.querySelector("#selectm_btn");
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value_get=function(obj){
+					let result=[];
+					let ops=document.querySelector(obj).options
+					for(i=0;i<ops.length;i++){
+						if(ops[i].selected){
+							result.push(ops[i].value)
+						}
+					}
+					return result;
+				}("#selectm")
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML=value_get
+				}("#selectm_result")
+			})
+		}
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>演習12-1 学籍番号:M21W7216 王玉磊</title>
+	<style>
+		canvas {border : 1px solid gray;}
+	</style>
+</head>
+<body>
+	<h3>canvasアニメ</h3>
+	<canvas width="640" height="480"></canvas>
+	<br><button id="btn">円を描く</button>
+
+	<script>
+		let cicle={x:0,y:0,r:100}
+
+		let id=null;
+		let canvas=document.querySelector("canvas")
+		let Paintbrush=canvas.getContext("2d");
+		let canvasBtn=document.querySelector("#btn")
+		canvasBtn.addEventListener("click",()=>{
+			if (id==null) {
+				id=setInterval(draw,10)
+				canvasBtn.textContent="停止";
+			}else{
+				clearInterval(id)
+				id=null;
+				canvasBtn.textContent="移動開始";
+			}
+		})
+		
+		
+		function draw(){
+			cicle.x+=1;
+			cicle.y+=1;
+			Paintbrush.clearRect(0,0,640,640);
+			Paintbrush.beginPath();
+			Paintbrush.lineWidth=5
+			Paintbrush.strokeStyle="red"
+			Paintbrush.arc(cicle.x,cicle.y,cicle.r,0,2*Math.PI);
+			Paintbrush.stroke();
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習11-1 学籍番号:M21W7216 王玉磊</title>
+		<style>
+		ul {
+			list-style-type: none;
+		}
+		.list1 {
+			width  : 200px;
+			height : 30px;
+			border : 1px solid gray;
+			transition: transform 1s, background-color 1s;
+		}
+		.anima1{
+			background-color: coral;
+			transform: translateX(30px);
+		}
+		
+	</style>
+</head>
+<body>
+	<h1>マウスを載せると右に出て，外すと元に戻るリスト</h1>
+	<ul id="list">
+		<li class="list1">百万遍本校</li>
+		<li class="list1">京都駅前サテライト</li>
+		<li class="list1">東京サテライト</li>
+		<li class="list1">札幌サテライト</li>
+	</ul>
+	
+	<script>
+	function list1_action(){
+		var obj_got=function(){
+			return document.querySelectorAll(".list1");
+		}()
+		var eventAdd=function(){
+			for(let i=0; i<obj_got.length;i++){
+				obj_got[i].addEventListener("mouseover",()=>{
+					obj_got[i].classList.add("anima1");
+				})
+				obj_got[i].addEventListener("mouseout",()=>{
+					obj_got[i].classList.remove("anima1");
+				})
+			}
+		
+		}()
+	}
+	list1_action();
+		
+	</script>
+</body>
+</html>

@@ -15,24 +15,24 @@
 	<span id="MultValue"></span>
 <script>
 	function value_get(numA,numB){
-		var num1=document.querySelector(numA);
-		var num2=document.querySelector(numB);
-		var NUM=[parseInt(num1.value),parseInt(num2.value)];
-		return NUM;
+		var num={
+			left:parseInt(document.querySelector(numA).value),
+			right:parseInt(document.querySelector(numB).value),
+			result:null,
+		}
+		return num;
 	}
-	function pluse(num_list){
-		var num1=num_list[0];
-		var num2=num_list[1];
-		num1=num1+num2;
+	function pluse(Num){
+		var num=Num
+		num.result=num.left+num.right;
 		var valueAdd=document.querySelector("#PluseValue");
-		valueAdd.textContent=num1;
+		valueAdd.textContent=num.result;
 	}
-	function mult(num_list){
-		var num1=num_list[0];
-		var num2=num_list[1];
-		num1=num1-num2;
+	function mult(Num){
+		var num=Num
+		num.result=num.left-num.right;
 		var valueMult=document.querySelector("#MultValue");
-		valueMult.textContent=num1;
+		valueMult.textContent=num.result;
 	}
 </script>
 

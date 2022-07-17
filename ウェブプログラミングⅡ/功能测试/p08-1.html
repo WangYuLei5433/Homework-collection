@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習8-1 繰り返し 学籍番号：M21W7216 王玉磊</title>
+</head>
+<body>
+	<h3>だんだん大声</h3>
+	<input type="text" id="radius">
+	<button id="circleEvent">面积</button>
+	<button id="circle_d">周长</button>
+	<div id="circleOut"></div>
+	<script>
+	var b=17
+		function initValidation()
+	{	
+		var b=this;
+    	this.a=5;
+		var r=10;
+    	this.validate = function(){
+		console.log(b.a);
+    }
+		date = function(){
+		console.log(b.a);
+    }
+}
+
+var fCall = new initValidation()
+fCall.validate();
+fCall.validate=function(){
+		console.log(b.r);
+    }
+fCall.a=10
+fCall.validate();
+	</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習9-1 学籍番号：M21W7216 王玉磊</title>
+</head>
+<body>
+	<h2>円の面積（＋円周） その１</h2>
+	<input type="text" id="radius">
+	<button id="circleEvent">面積計算</button>
+	<button id="circle_d">円周計算</button>
+	<div id="circleOut"></div>
+	<script>
+		function circle_buttom(object){
+			
+			var clickEvent=document.querySelector(object.buttomId);
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value=function(obj){
+					return Number(document.querySelector(obj).value)
+				}(object.getId)
+				
+				var round=object.round(value)
+			
+
+				var out_obj=document.querySelector(object.result)
+				out_obj.innerHTML=object.out(round)
+				
+			})
+			
+			
+		}
+
+		var buttom1=new circle_buttom({
+			buttomId:"#circleEvent",
+			getId:"#radius",
+			result:"#circleOut",
+			round:function(value){
+				return value*value*Math.PI
+			},
+			out:function(round){
+				return "面積計算:"+round+"<br>"
+			}
+		})
+		var buttom2=new circle_buttom({
+			buttomId:"#circle_d",
+			getId:"#radius",
+			result:"#circleOut",
+			round:function(value){
+				return value*2*Math.PI
+			},
+			out:function(round){
+				return "円周計算:"+round+"<br>";
+			}
+		})
+		/*function circle_buttom(){
+			var clickEvent=document.querySelector("#circleEvent");
+			clickEvent.addEventListener("click",circleEvent=()=>{
+				var value_get=function(obj){
+					return Number(document.querySelector(obj).value)
+				}("#radius")
+				var round=function(value){
+					return value*value*Math.PI
+				}(value_get)
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML="面積計算:"+round+"<br>";
+				}("#circleOut")
+			})
+			
+		}
+		*/
+		
+		
+		
+	</script>
+</body>
+</html>

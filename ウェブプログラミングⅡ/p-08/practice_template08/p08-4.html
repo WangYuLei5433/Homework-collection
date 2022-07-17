@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習8-4 乱数の発生回数 学籍番号：M21W7216 王玉磊</title>
+</head>
+<body>
+	<h2>乱数の発生回数</h2>
+	<input type="number" id="M">
+	<button onclick="times_in()">乱数回数</button>
+	<div id="TimesOut"></div>
+	<script>
+	function value_get(){
+		var num=Number(document.querySelector("#M").value);
+		return num;
+	}
+	function num_rand(){
+		var random=parseInt(Math.random()*9);
+		return random;
+	}
+	function times(Num){
+		var re=[0,0,0,0,0,0,0,0,0];
+		let rand=null;
+		for(let i=0;i<Num;i++){
+			rand=num_rand();
+			re[rand]+=1
+		}
+		return re;
+	}
+	function times_in(){
+		var time=times(value_get())
+		document.querySelector("#TimesOut").innerHTML=time;
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習9-3 学籍番号：M21W7216 王玉磊</title>
+</head>
+<body>
+	<h2>円の面積 その３</h2>
+	<input type="range" id="radius">
+	<div id="circleOut"></div>
+	<script>
+		var main=function(){
+			circle_buttom1();
+			circle_buttom2()
+		}();
+
+		function circle_buttom1(){
+			var clickEvent=document.querySelector("#radius");
+			clickEvent.addEventListener("input",circleEvent=function(){
+				var value_get=function(obj){
+					return Number(document.querySelector(obj).value)
+				}("#radius")
+				var round=function(value){
+					return value*value*Math.PI
+				}(value_get)
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML="面積計算:"+round+"<br>";
+				}("#circleOut")
+			})
+			
+		}
+		function circle_buttom2(){
+			var clickEvent=document.querySelector("#radius");
+			clickEvent.addEventListener("input",circleEvent=()=>{
+				var value_get=function(obj){
+					return Number(document.querySelector(obj).value)
+				}("#radius")
+				var round=function(value){
+					return value*2*Math.PI
+				}(value_get)
+				var obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML+="円周計算:"+round+"<br>";
+				}("#circleOut")
+			})
+			
+		}
+		
+		
+	</script>
+</body>
+</html>

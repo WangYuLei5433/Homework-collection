@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習13-1　Ajax 学籍番号xxxxxxxxx</title>
+	<style>
+	.flex-container{
+		width: 1000px;
+		height: 350px;
+		display: flex;
+		background-color: rgb(236, 236, 166);
+	}
+	.boxLeft{
+		margin:10px 10px 10px 10px;
+		width: 200px;
+		height: 300px;
+		border: 1px solid rgb(0, 200, 255);
+	}
+	.boxRigth{
+		margin:10px 10px 10px 10px;
+		width: 500px;
+		height: 300px;
+		border: 1px solid rgb(0, 200, 255);
+	}
+	ul {
+			list-style-type: none;
+		}
+		.list1 {
+			width  : 200px;
+			height : 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="flex-container">
+		<div class="boxLeft">
+			<h3 style="text-align:center;">京都の観光地紹介</h3>
+			<ul id="list">
+				<li class="list1" id="qingShui">清水寺</li>
+				<li class="list1" id="jinGe">金阁寺</li>
+				<li class="list1" id="fuJian">伏见稻荷神社</li>
+				<li class="list1" id="pingDeng">平等院</li>
+		    </ul>
+		</div>
+		<div class="boxRigth"></div>
+	</div>
+
+	<script>
+		var qingShui=document.querySelector("#qingShui")
+		
+		qingShui.addEventListener("click",()=>{
+			var req = new XMLHttpRequest();
+			req.addEventListener("load",() => {
+            	getData(req);
+        	});
+			req.open("GET", "kyoto-0.html");
+			req.send();
+		})
+
+		function getData(req) {
+        let result = req.responseText;
+        document.querySelector("#boxRigth").innerHTML = result;
+    	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>演習8-2 配列内の最小値　学籍番号：M21W7216 王玉磊</title>
+</head>
+<body>
+	<h2>配列内の最小値を見つける</h2>
+	<input type="text" id="numText">
+	<button onclick="min_out(value_get())">最小值</button><br>
+	<div id="min_out"></div>
+	<script>
+		//选择排序
+		function num_min(Num){
+			var numList=Num;
+			var min=numList[0];
+			for(let i=0;i<numList.length;i++){
+				if(min>numList[i]){
+					min=numList[i]
+				}
+			}
+			return min;
+		}
+		//字符串数组转数字数组，值获取
+		function value_get(){
+			var numText=document.querySelector("#numText").value;
+			var numList=numText.split(",");
+			return numList.map(Number);
+		}
+		//输出函数
+		function min_out(Num){
+			var min=num_min(Num);
+			var numMin_out=document.querySelector("#min_out");
+			numMin_out.textContent=min;
+		}
+
+	</script>
+</body>
+</html>

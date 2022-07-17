@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習9-2 学籍番号：MxxWxxxx</title>
+</head>
+<body>
+	<h2>円の面積 その２</h2>
+	<input type="number" id="radius">
+	<div id="circleOut"></div>
+	<script>
+		
+
+		function circle_buttom1(){
+			this.a=function(){
+					var clickEvent=document.querySelector("#radius");
+			clickEvent.addEventListener("input",circleEvent=function(){
+				var circle=this;
+				this.value_get=function(obj){
+					return Number(document.querySelector(obj).value)
+				}("#radius")
+
+				this.round=circle.value_get*circle.value_get*Math.PI;
+
+				this.obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML="面積計算:"+circle.round+"<br>";
+				}("#circleOut")
+			})
+			}
+		
+			
+		}
+
+
+		var circle_buttom2=new circle_buttom1();
+
+		circle_buttom2.round=this.value_get*2*Math.PI;
+		circle_buttom2.obj_out=function(obj){
+					var out_obj=document.querySelector(obj)
+					out_obj.innerHTML+="面積:"+this.round+"<br>";
+				}("#circleOut")
+		var main=function(){
+		
+			circle_buttom2.a()
+		}();
+		
+	</script>
+</body>
+</html>

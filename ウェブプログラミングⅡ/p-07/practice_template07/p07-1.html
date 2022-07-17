@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>演習7-1(おみくじ) 学籍番号:M21W7216 王玉磊</title>
+</head>
+<body>
+	<h3>おみくじ</h3>
+	<h3>運勢占い</h3>
+	<button onclick="Divination(num_rand())">占い</button>
+	<div id="Divination">
+
+	</div>
+<script>
+	//随机数生成0-3
+	function num_rand(){
+		var random=parseInt(Math.random()*4);
+		return random;
+	}
+	//随机输出"あなたの運勢は"
+	function Divination(random){
+		var rand=random;
+		var divina_text=['大吉','中吉','吉','凶'];
+		var divina=document.querySelector("#Divination");
+		divina.textContent="あなたの運勢は"+divina_text[rand]+"です";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習11-3 学籍番号:M21W7216 王玉磊</title>
+	<style>
+		.anima1{
+			background-color: coral;
+			transform: translateX(30px);
+		}
+		ul {
+			list-style-type: none;
+		}
+		.list1 {
+	
+			transition: transform 1s, background-color 1s;
+			width  : 200px;
+			height : 30px;
+			border : 1px solid gray;
+			text-align:center;
+		}
+		dd {
+			max-height:0px;
+			opacity : 0;
+			width  : 400px;
+			padding : 5px;
+			color: gray;			
+			transition: all 1s;
+		}		
+		.anim{
+			max-height : 400px;
+			opacity : 1;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>見出しをクリックすると現れる／隠れる内容</h1>
+	<ul id="list1">
+		<dt class="list1">清水寺</dt>
+		<dd id="dd00">
+			清水寺は法相宗（南都六宗の一）系の寺院で、広隆寺、鞍馬寺とともに、平安京遷都以前からの歴史をもつ、京都では数少ない寺院の1つである。また、石山寺（滋賀県大津市）、長谷寺（奈良県桜井市）などと並び、日本でも有数の観音霊場であり、鹿苑寺（金閣寺）、嵐山などと並ぶ京都市内でも有数の観光地として有名であり、季節を問わず多くの参詣者が訪れる。
+		</dd>
+		<dt class="list1">伏見稲荷大社</dt>
+		<dd id="dd01">
+			伏見稲荷大社は、京都府京都市伏見区深草にある神社。旧称は稲荷神社。式内社、二十二社の一社。旧社格は官幣大社で、現在は神社本庁に属さない単立神社。稲荷山の麓に本殿があり、稲荷山全体を神域とする。 全国に約3万社あるといわれる稲荷神社の総本社である。初詣では近畿地方の社寺で最多の参拝者を集める。
+		</dd>
+		<dt class="list1">金閣寺</dt>
+		<dd id="dd02">
+			鹿苑寺（ろくおんじ）は、京都市北区にある臨済宗相国寺派の寺。建物の内外に金箔を貼った3層の楼閣建築である舎利殿は金閣（きんかく）、舎利殿を含めた寺院全体は金閣寺（きんかくじ）として知られる。相国寺の山外塔頭寺院である
+		</dd>
+		<dt class="list1">平等院</dt>
+		<dd id="dd03">
+			平等院（びょうどういん）は、京都府宇治市宇治蓮華に所在する、藤原氏ゆかりの仏教寺院。山号は朝日山。開基は藤原頼通、開山は明尊。本尊は阿弥陀如来坐像。
+		</dd>
+	</dl>
+		
+	<script>
+		
+		function list1_action(){
+			var dt_got=document.querySelectorAll("dt");
+			var dd_out=document.querySelectorAll("dd");
+			var eventAdd=function(){
+				for(let i=0; i<dt_got.length;i++){
+					dt_got[i].addEventListener("click",()=>{
+						dd_out[i].classList.toggle("anim");
+					})
+					dt_got[i].addEventListener("mouseover",()=>{
+						dt_got[i].classList.toggle("anima1");
+					})
+					dt_got[i].addEventListener("mouseout",()=>{
+						dt_got[i].classList.toggle("anima1");
+					})
+
+				}
+		}()
+	}
+	list1_action();
+	
+	
+	
+	</script>
+	</body>
+</html>

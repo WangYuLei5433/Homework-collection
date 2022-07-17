@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>演習8-5 買い物かご　学籍番号:M21W7216 王玉磊</title>
+</head>
+<style>
+    table{
+    border:1px solid #000;
+    border-collapse:collapse;  
+    width: 30%;
+}
+th,td{
+    border:1px solid #000;
+}
+</style>
+<body>
+    <h2>買い物をします。</h2>
+    产品名:<input type="text" id="ProductNam"> 数量：<input type="number" id="ProductNum">
+	<button onclick="showCart()">買い物</button><hr><br>
+	<div id="SumOut">
+        <table>
+            <tr>
+            <th>物品名</th>
+            <th>数量</th>
+            </tr> 
+            <tr>
+            <td>Orange</td>
+            <td>20</td>
+            </tr>
+            
+        </table>
+    </div>
+    <script>
+        var cartlist=[]; 
+        function cart_get(){
+            let cart = {
+            name:document.querySelector("#ProductNam").value,
+            num:Number(document.querySelector("#ProductNum").value),
+        }
+            return cart;
+        }  
+        function addCart(Cart){
+            let cart=Cart;
+            var OldLength=cartlist.length
+            for(let i=0;i<cartlist.length;i++){
+                if(cartlist[i][0]==cart.name){
+                    cartlist[i][1]+=cart.num;
+                    OldLength+=1
+                }
+            }
+            if(OldLength==cartlist.length){
+                cartlist.push([cart.name,cart.num]);
+            }
+        }
+        function table_creat(Cart){
+            var cart=Cart;
+            var table=" ";
+            for(let i=0;i<cartlist.length;i++){
+                table+="<tr><td>"+cartlist[i][0]+"</td><td>"+cartlist[i][1]+"</td><tr>";
+            }
+            return table;
+        } 
+         //買い物かごの中を出力する
+        function showCart(){
+           addCart(cart_get());
+           var table=table_creat(cart_get());
+           var tableout=document.querySelector("#SumOut");
+           tableout.innerHTML="<table><tr><th>物品名</th><th>数量</th></tr>"+table+"</table>";
+    }
+            
+    </script>
+</body>
+</html>

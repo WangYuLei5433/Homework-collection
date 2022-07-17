@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習12-4 学籍番号:M21W7216 王玉磊</title>
+	<style>
+		canvas {border : 1px solid gray;}
+	</style>
+</head>
+<body>
+	<h3>canvasの枠に当たったら，跳ね返るようにしよう</h3>
+	<canvas width="640" height="480"></canvas>
+	<br><button id="btn">円を描く</button>
+
+	<script>
+		let circles=[];
+		circles.push(cicle())
+		function cicle(){
+			return {
+				x:parseInt(Math.random()*540+50),
+				y:parseInt(Math.random()*380+50),
+				r:50,
+				dx:1,
+				dy:1,
+			};
+		}
+
+		let id=null;
+		let canvas=document.querySelector("canvas")
+		let Paintbrush=canvas.getContext("2d");
+		let canvasBtn=document.querySelector("#btn")
+		canvasBtn.addEventListener("click",()=>{
+			if (id==null) {
+				id=setInterval(draw,10)
+			}else{
+				if(circles.length<20){
+					circles.push(cicle())
+				}
+				clearInterval(id)
+				id=setInterval(draw,10);
+			}
+		})
+		
+		
+		function draw(){
+			Paintbrush.clearRect(0,0,640,640);
+			Paintbrush.lineWidth=5
+			Paintbrush.strokeStyle="blue"
+			for(let i=0;i<circles.length;i++){
+				circles[i].x+=1*circles[i].dx;
+				circles[i].y-=1*circles[i].dy;
+				if(circles[i].x==50||circles[i].x==590){
+					circles[i].dx=-1*circles[i].dx
+			 	}
+				 if(circles[i].y==50||circles[i].y==430){
+					circles[i].dy=-1*circles[i].dy
+			 	}
+				 Paintbrush.beginPath();
+				 Paintbrush.arc(circles[i].x,circles[i].y,circles[i].r,0,2*Math.PI);
+				 Paintbrush.stroke();
+			}
+		}
+		
+	</script>
+</body>
+</html>

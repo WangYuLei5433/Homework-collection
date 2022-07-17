@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>演習12-2 学籍番号:M21W7216 王玉磊</title>
+	<style>
+		canvas {border : 1px solid gray;}
+	</style>
+</head>
+<body>
+	<h3>canvas内に青色の円をランダムに描く</h3>
+	<canvas width="640" height="480"></canvas>
+	<br><button id="canvasBtn">円を描く</button>
+
+	<script>
+		let cicle={x:100,y:100,r:50}
+
+		let id=null;
+		let canvas=document.querySelector("canvas")
+		let Paintbrush=canvas.getContext("2d");
+		let canvasBtn=document.querySelector("#canvasBtn")
+		canvasBtn.addEventListener("click",()=>{
+			draw()
+		})
+		
+		
+		function draw(){
+			cicle.x=parseInt(Math.random()*640)
+			cicle.y=parseInt(Math.random()*480)
+			Paintbrush.beginPath();
+			Paintbrush.lineWidth=7
+			Paintbrush.strokeStyle="blue"
+			Paintbrush.arc(cicle.x,cicle.y,cicle.r,0,2*Math.PI);
+			Paintbrush.stroke();
+		}
+		
+	</script>
+</body>
+</html>

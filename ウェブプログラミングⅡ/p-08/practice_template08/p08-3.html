@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>演習8-3 学籍番号：M21W7216 王玉磊 </title>
+</head>
+<body>
+	<h3>整数ＭからＮ(Ｍ&lt;Ｎ)までの数を足す</h3>
+	<input type="number" id="M"> < <input type="number" id="N">
+	<button onclick="sum_in()">前n项和</button>
+	<div id="SumOut"></div>
+	<script>
+		function value_get(){
+			var NUM={
+				M:parseInt(document.querySelector("#M").value),
+				N:parseInt(document.querySelector("#N").value),
+			}
+			return NUM;
+		}
+		function num_sum(Num){
+			var sum=0;
+			var num=Num;
+			var length=num.N-num.M+1;
+			for(let i=0;i<length;i++){
+				sum+=num.M+i;
+			}
+			return sum;
+		}
+		function sum_in(){
+			var sum=num_sum(value_get());
+			document.querySelector("#SumOut").textContent=sum;
+		}
+	</script>
+</body>
+</html>
